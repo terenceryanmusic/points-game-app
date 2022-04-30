@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Homepage from './pages/Homepage';
+import AddPlayer from './pages/AddPlayer';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Router>
+			<div className='h-screen bg-gradient-to-br from-blue-600 to-slate-800 text-gray-50'>
+				<Header />
+				<Routes>
+					<Route path='/' element={<Homepage />} />
+					<Route path='/addplayer' element={<AddPlayer />} />
+					<Route
+						path='*'
+						element={
+							<h1 className='h-screen p-72 flex flex-grow justify-center items-center text-center text-3xl font-bold text-gray-100'>
+								404 - Not Found
+							</h1>
+						}
+					/>
+				</Routes>
+			</div>
+		</Router>
+	);
 }
 
 export default App;
