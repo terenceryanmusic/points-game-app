@@ -6,7 +6,7 @@ import AddPlayer from './pages/AddPlayer';
 function App() {
 	return (
 		<Router>
-			<div className='h-screen bg-gradient-to-br from-blue-600 to-slate-800 text-gray-50'>
+			<div className='min-h-screen bg-gradient-to-br from-blue-600 to-slate-800 text-gray-50'>
 				<Header />
 				<Routes>
 					<Route path='/' element={<Homepage />} />
