@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Homepage from './pages/Homepage';
 import AddPlayer from './pages/AddPlayer';
+import Rewards from './pages/Rewards';
 
 function App() {
 	return (
@@ -11,6 +12,8 @@ function App() {
 				<Routes>
 					<Route path='/' element={<Homepage />} />
 					<Route path='/addplayer' element={<AddPlayer />} />
+					<Route path='/rewards' element={<Rewards />} />
+
 					<Route
 						path='*'
 						element={
