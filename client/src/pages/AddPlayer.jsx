@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
+import { useSelector, useDispatch } from 'react-redux';
+import { register, reset } from '../features/auth/authSlice';
 
 const AddPlayer = () => {
+	const { user } = useSelector((state) => state.auth);
+	const dispatch = useDispatch();
+
 	const [userData, setUserData] = useState({
 		name: '',
 		age: '',
@@ -19,8 +23,6 @@ const AddPlayer = () => {
 		}));
 	};
 
-	const id = uuidv4();
-
 	const onSubmit = (e) => {
 		e.preventDefault();
 
@@ -33,10 +35,12 @@ const AddPlayer = () => {
 		if (!userData) {
 			console.log('no user data!');
 		} else {
-			localStorage.setItem(`Player ${id}`, JSON.stringify(userData));
+			localStorage.setItem(JSON.stringify(userData));
 			navigate('/');
 		}
 	};
+
+	dispatch(register(userData), setTimeout(3000));
 
 	return (
 		<main className='flex flex-col justify-center items-center p-4'>

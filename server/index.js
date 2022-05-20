@@ -4,6 +4,7 @@ const db_connect = require('./config/db');
 const { errorHandler } = require('./middleware/errorMiddleware');
 const port = process.env.PORT || 9000;
 const cors = require('cors');
+const path = require('path');
 
 db_connect();
 
@@ -15,9 +16,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 // use routes
-// app.use('/api/users', require('./routes/userRoutes'));
-// app.use('/api/points', require('./routes/pointsRoutes'));
-// app.use('/api/rewards', require('./routes/rewardsRoutes'));
+app.use('/api/users', require('./routes/userRoutes'));
+app.use('/api/points', require('./routes/pointsRoutes'));
+app.use('/api/rewards', require('./routes/rewardRoutes'));
 
 // Serve client
 if (process.env.NODE_ENV === 'production') {
