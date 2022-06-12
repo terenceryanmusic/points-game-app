@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { register, reset } from '../features/auth/authSlice';
+import { UserAddIcon } from '@heroicons/react/solid';
 
 const AddPlayer = () => {
 	const { user } = useSelector((state) => state.auth);
@@ -40,11 +41,15 @@ const AddPlayer = () => {
 		}
 	};
 
-	dispatch(register(userData), setTimeout(3000));
+	// uncomment once connected to avoid system memory leak
+	// dispatch(register(userData), setTimeout(3000));
 
 	return (
-		<main className='flex flex-col justify-center items-center p-4'>
-			<h1 className='text-3xl m-8'>Add New Player</h1>
+		<main className='flex flex-col md:min-h-[50rem] justify-center items-center p-4'>
+			<div className='flex justify-center items-center bg-slate-800 h-16 p-4 mb-4 rounded-lg'>
+				<UserAddIcon className='text-white-100 mr-2 h-10 bg-none' />
+				<h1 className='text-3xl'>Add New Player</h1>
+			</div>
 			<form className='flex flex-col items-end' onSubmit={onSubmit}>
 				<label className='font-semibold'>
 					Name:

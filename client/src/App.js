@@ -7,12 +7,12 @@ import Rewards from './pages/Rewards';
 function App() {
 	return (
 		<Router>
-			<div className='min-h-screen bg-gradient-to-br from-blue-600 to-slate-800 text-gray-50'>
+			<div className='min-h-screen bg-gradient-to-b from-sky-700 to-sky-900 text-gray-50'>
 				<Header />
 				<Routes>
 					<Route path='/' element={<Homepage />} />
-					<Route path='/addplayer' element={<AddPlayer />} />
 					<Route path='/rewards' element={<Rewards />} />
+					<Route path='/addplayer' element={<AddPlayer />} />
 
 					<Route
 						path='*'

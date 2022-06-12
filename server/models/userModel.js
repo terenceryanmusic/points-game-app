@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { mainModule } = require('process');
 
 const userSchema = new mongoose.Schema({
 	name: {
