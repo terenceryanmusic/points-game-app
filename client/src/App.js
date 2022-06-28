@@ -1,18 +1,24 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Homepage from './pages/Homepage';
+import Scoreboard from './pages/Scoreboard';
 import AddPlayer from './pages/AddPlayer';
 import Rewards from './pages/Rewards';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
 	return (
 		<Router>
-			<div className='min-h-screen bg-gradient-to-b from-sky-700 to-sky-900 text-gray-50'>
+			<div className='bg-slate-700 bg-opacity-90 min-h-screen text-gray-50'>
 				<Header />
 				<Routes>
 					<Route path='/' element={<Homepage />} />
+					<Route path='/scoreboard' element={<Scoreboard />} />
 					<Route path='/rewards' element={<Rewards />} />
 					<Route path='/addplayer' element={<AddPlayer />} />
+					<Route path='/login' element={<Login />} />
+					<Route path='/register' element={<Register />} />
 
 					<Route
 						path='*'
